@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     etPassword.setError("Password's length must be more than 8");
                 } else {
                     Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    Intent intent = new Intent(MainActivity.this, ItemActivity.class);
                     intent.putExtra("email", email);
                     startActivity(intent);
                 }
