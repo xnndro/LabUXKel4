@@ -13,6 +13,7 @@ import java.util.List;
 public class AdapterItem extends RecyclerView.Adapter<RecycleItem> {
     Context context;
     List<Item> items;
+
     public AdapterItem(Context context, List<Item> items) {
         this.context = context;
         this.items = items;
