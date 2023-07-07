@@ -17,7 +17,6 @@ public class DetailItem extends AppCompatActivity {
             item = getIntent().getParcelableExtra("item");
         }
 
-//        assign to view
         itemName = findViewById(R.id.tv_itemName);
         itemPrice = findViewById(R.id.tv_itemPrice);
         storeName = findViewById(R.id.tv_storeName);
