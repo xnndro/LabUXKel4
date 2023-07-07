@@ -257,6 +257,7 @@
             >
 
             <RelativeLayout
+                android:id="@+id/menus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:elevation="1dp"
@@ -275,11 +276,12 @@
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/sidebar"
                 android:layout_width="50dp"
                 android:layout_height="170dp"
                 android:orientation="vertical"
                 android:background="@drawable/bg_sidebar"
-
+                android:visibility="invisible"
                 >
                 <ImageButton
                     android:layout_width="50dp"

@@ -1,6 +1,11 @@
 package com.example.kel4labux;
 
-public class Item {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+public class Item implements Parcelable {
 
 
     String name,price, storeName ;
@@ -11,6 +16,25 @@ public class Item {
         this.storeName = storeName;
         this.image = image;
     }
+
+    protected Item(Parcel in) {
+        name = in.readString();
+        price = in.readString();
+        storeName = in.readString();
+        image = in.readInt();
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 
     public String getName() {
         return name;
@@ -42,5 +66,18 @@ public class Item {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(price);
+        dest.writeString(storeName);
+        dest.writeInt(image);
     }
 }
