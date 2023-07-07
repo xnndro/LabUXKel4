@@ -36,7 +36,7 @@ public class AdapterItem extends RecyclerView.Adapter<RecycleItem> {
         holder.storeName.setText(items.get(position).getStoreName());
         holder.imageView.setImageResource(items.get(position).getImage());
 
-        // Set click listener for item
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

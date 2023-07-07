@@ -8,12 +8,13 @@ import androidx.annotation.NonNull;
 public class Item implements Parcelable {
 
 
-    String name,price, storeName ;
+    String name,price, storeName,description;
     int image;
-    public Item(String name, String price, String storeName, int image) {
+    public Item(String name, String price, String storeName , String description, int image) {
         this.name = name;
         this.price = price;
         this.storeName = storeName;
+        this.description = description;
         this.image = image;
     }
 
@@ -21,6 +22,7 @@ public class Item implements Parcelable {
         name = in.readString();
         price = in.readString();
         storeName = in.readString();
+        description = in.readString();
         image = in.readInt();
     }
 
@@ -58,6 +60,13 @@ public class Item implements Parcelable {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getImage() {
