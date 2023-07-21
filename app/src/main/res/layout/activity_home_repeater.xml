@@ -12,16 +12,17 @@
             android:id="@+id/imageViewGameIcon"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:background="@color/purple"/>
 
         <TextView
             android:id="@+id/textViewGameTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-
-
+            android:textSize="16sp"
+            android:text="Game Title"
+            android:gravity="center"
+            android:textColor="@color/purple"/>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

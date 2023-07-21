@@ -1,23 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
-    <GridLayout
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="2">
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewGames"
+        android:scrollbars="vertical">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:orientation="vertical">
 
-    </GridLayout>
-</LinearLayout>
+                <ViewFlipper
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:autoStart="true"
+                    android:flipInterval="2000"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imageView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        app:srcCompat="@drawable/mobile_legends"
+                        android:scaleType="fitXY"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="320dp"
+                        app:srcCompat="@drawable/stumble_guys"
+                        android:scaleType="fitXY"/>
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="320dp"
+                        app:srcCompat="@drawable/valorant"
+                        android:scaleType="fitXY"/>
+
+                </ViewFlipper>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:background="@drawable/gradient_background" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="117dp"
+                    android:layout_marginTop="203dp"
+                    android:rotation="180"
+                    android:background="@drawable/gradient_background" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="183dp"
+                    android:layout_height="43dp"
+                    android:baselineAligned="false"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    app:cardBackgroundColor="@color/purple_dark"
+                    android:alpha="0.7"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"
+                    app:cardCornerRadius="8dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="10dp"
+
+                        >
+
+                        <ImageView
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:src="@drawable/profile_photo"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_marginLeft="10dp"
+
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="11sp"
+                                android:text="Hello,"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppinsregular"
+                                android:alpha="0.65"
+                                android:layout_marginTop="5dp"
+
+                                ></TextView>
+                            <TextView
+                                android:id="@+id/userEmail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp"
+                                android:text="!"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppinssemibold"
+
+
+                                ></TextView>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <!--            <LinearLayout-->
+                <!--                android:layout_width="183dp"-->
+                <!--                android:layout_height="43dp"-->
+                <!--                android:layout_marginTop="-150dp"-->
+                <!--                android:baselineAligned="false"-->
+                <!--                android:orientation="horizontal"-->
+                <!--                android:gravity="center_vertical"-->
+                <!--                android:background="@color/purple_dark"-->
+                <!--                android:alpha="0.7"-->
+                <!--                >-->
+
+                <!--                <ImageView-->
+                <!--                    android:layout_width="34dp"-->
+                <!--                    android:layout_height="34dp"-->
+                <!--                    android:src="@drawable/profile_photo"/>-->
+
+                <!--                <LinearLayout-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:orientation="vertical"-->
+                <!--                    >-->
+
+                <!--                    <TextView-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:textSize="11sp"-->
+                <!--                        android:text="Hello,"></TextView>-->
+                <!--                    <TextView-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:textSize="11sp"-->
+                <!--                        android:text="Hello,"></TextView>-->
+
+
+                <!--                </LinearLayout>-->
+                <!--            </LinearLayout>-->
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/homebg"
+                    android:scaleType="fitCenter">
+                </ImageView>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/poppinsbold"
+                        android:shadowColor="#9E64D7"
+                        android:shadowDx="1"
+                        android:shadowDy="5"
+                        android:shadowRadius="20"
+                        android:text="GAME CATEGORY"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:letterSpacing="0.14 "
+                        ></TextView>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <LinearLayout
+
+                            android:layout_width="316dp"
+                            android:layout_height="42dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/tabmenu_home"
+                            android:orientation="horizontal"
+                            android:weightSum="3"
+                            android:layout_margin="10dp"
+                            >
+                            <LinearLayout
+                                android:id="@+id/mobileTab"
+                                android:layout_width="111dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:background="@drawable/currtab1"
+
+                                >
+
+                                <ImageView
+                                    android:layout_width="13dp"
+                                    android:layout_height="21dp"
+                                    android:background="@drawable/mobile_icon"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="Mobile"
+                                    android:textColor="@color/white"
+                                    android:textSize="14dp"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:layout_marginLeft="5dp"
+                                    android:gravity="center"
+                                    android:shadowColor="#6A2ECC"
+                                    android:shadowDy="2"
+                                    android:shadowRadius="10"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/pcTab"
+                                android:layout_width="111dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:background="@drawable/tabmenu2"
+
+                                >
+
+                                <ImageView
+                                    android:layout_width="21dp"
+                                    android:layout_height="21dp"
+                                    android:background="@drawable/pc_icon"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="PC"
+                                    android:textColor="@color/white"
+                                    android:textSize="14dp"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:layout_marginLeft="5dp"
+                                    android:gravity="center"
+                                    android:shadowColor="#6A2ECC"
+                                    android:shadowDy="2"
+                                    android:shadowRadius="10"
+                                    />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/consoleTab"
+                                android:layout_width="111dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:gravity="center"
+                                android:background="@drawable/tabmenu3"
+
+                                >
+
+                                <ImageView
+                                    android:layout_width="26dp"
+                                    android:layout_height="26dp"
+                                    android:background="@drawable/console_icon"
+                                    />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:text="Console"
+                                    android:textColor="@color/white"
+                                    android:textSize="14dp"
+                                    android:fontFamily="@font/poppinsmedium"
+                                    android:layout_marginLeft="2dp"
+                                    android:gravity="center"
+                                    android:shadowColor="#6A2ECC"
+                                    android:shadowDy="2"
+                                    android:shadowRadius="10"
+                                    />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/fragmenTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+
+                </LinearLayout>
+
+                <!--    <GridLayout-->
+                <!--        android:layout_width="match_parent"-->
+                <!--        android:layout_height="wrap_content"-->
+                <!--        android:columnCount="2"-->
+                <!--        android:rowCount="2">-->
+                <!--        <androidx.recyclerview.widget.RecyclerView-->
+                <!--            android:id="@+id/recyclerViewGames"-->
+                <!--            android:layout_width="match_parent"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+                <!--            app:layout_constraintBottom_toBottomOf="parent" />-->
+                <!--    </GridLayout>-->
+
+
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+
+
+
+
+
+        </ScrollView>
+
+
+
+
+
+</RelativeLayout>
