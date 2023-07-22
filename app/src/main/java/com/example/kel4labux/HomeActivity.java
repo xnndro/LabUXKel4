@@ -60,16 +60,13 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         String email = getIntent().getStringExtra("email");
+        int index = email.indexOf("@");
+        String username = email.substring(0, index);
         
 //         set userEmail (TextView) with email (String from MainActivity)
-         userEmail = findViewById(R.id.userEmail);
-         userEmail.setText(email);
-//        recyclerViewGames = findViewById(R.id.recyclerViewGames);
-//        recyclerViewGames.setLayoutManager(new GridLayoutManager(this, 2));
-//        games = DataProvider.getGames();
-//        gameAdapter = new GameAdapter(games);
-//        gameAdapter.setListener(this::onItemClick);
-//        recyclerViewGames.setAdapter(gameAdapter);
+        userEmail = findViewById(R.id.userEmail);
+        userEmail.setText(username + "!");
+
     }
 
     private void selectTab(int tabnumber){
@@ -118,13 +115,6 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
-
-//    public void onItemClick(Game game) {
-//        Intent intent = new Intent(this, ItemActivity.class);
-//        System.out.println(game.getName());
-//        intent.putExtra("game", game);
-//        startActivity(intent);
-//    }
 
 
 

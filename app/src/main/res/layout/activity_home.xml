@@ -27,9 +27,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="320dp"
                     android:autoStart="true"
-                    android:flipInterval="2000"
-                    android:inAnimation="@android:anim/slide_in_left"
-                    android:outAnimation="@android:anim/slide_out_right"
+                    android:flipInterval="5000"
+                    android:inAnimation="@anim/slide_from_right"
+                    android:outAnimation="@anim/slide_to_left"
                     >
 
                     <ImageView
@@ -93,7 +93,11 @@
                         <ImageView
                             android:layout_width="34dp"
                             android:layout_height="34dp"
-                            android:src="@drawable/profile_photo"/>
+                            android:src="@drawable/icon_profile" />
+
+
+
+
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -321,9 +325,9 @@
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragmenTab"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-
-
+                        android:layout_height="match_parent"
+                        android:name="com.example.kel4labux.MobileFragment"
+                        tools:layout="@layout/fragment_mobile" />
                 </LinearLayout>
 
                 <!--    <GridLayout-->
