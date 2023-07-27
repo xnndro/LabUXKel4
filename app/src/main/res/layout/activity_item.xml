@@ -267,11 +267,12 @@
                     android:layout_height="50dp"
                     android:src="@drawable/lingkaran"
                     />
+
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_mobile"
-                    android:layout_centerInParent="true"/>
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_mobile" />
             </RelativeLayout>
 
             <LinearLayout
