@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
     tools:context=".ItemActivity">
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -26,7 +25,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_centerInParent="true"
-            android:src="@drawable/chevronback"
+            android:src="@drawable/chevronback"/>
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,7 +38,6 @@
         >
 
         <RelativeLayout
-            android:id="@+id/menus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:elevation="1dp"
@@ -66,16 +64,17 @@
                     android:background="@drawable/dt_coin"
                     android:layout_marginRight="5dp"
                     />
+
                 <TextView
-                    android:layout_width="60dp"
+                    android:id="@+id/moneycash"
+                    android:layout_width="65dp"
                     android:layout_height="wrap_content"
+                    android:gravity="right"
                     android:fontFamily="@font/poppinsbold"
                     android:text="99999"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
-                    android:gravity="right"
                     android:textAlignment="gravity"
-                    android:paddingRight="5dp"/>
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
             </LinearLayout>
 
         </RelativeLayout>
@@ -102,6 +101,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_itemName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="44dp"
@@ -111,6 +111,7 @@
                 android:textSize="18dp"/>
 
             <TextView
+                android:id="@+id/tv_storeName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="44dp"
@@ -130,6 +131,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_itemPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinssemibold"
@@ -207,13 +209,15 @@
                             android:textSize="15dp"
                             android:fontFamily="@font/poppinssemibold"/>
                         <EditText
+                            android:id="@+id/dl_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputloginshape"
+                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
                             android:paddingHorizontal="5dp"
                             android:textSize="13dp"
                             android:hint="input your e-mail"
+                            android:textColorHint="@color/white"
                             android:fontFamily="@font/poppinslightitalic"
                             />
                     </LinearLayout>
@@ -231,13 +235,15 @@
                             android:textSize="15dp"
                             android:fontFamily="@font/poppinssemibold"/>
                         <EditText
+                            android:id="@+id/dl_username"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputloginshape"
+                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
                             android:paddingHorizontal="5dp"
                             android:textSize="13dp"
                             android:hint="input your username"
+                            android:textColorHint="@color/white"
                             android:fontFamily="@font/poppinslightitalic"
                             />
                     </LinearLayout>
@@ -270,21 +276,23 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:paddingHorizontal="10dp"
                                 android:gravity="center"
                                 android:layout_centerVertical="true"
                                 >
                                 <ImageButton
+                                    android:id="@+id/decrement_btn"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:background="@drawable/decrement" />
                                 <TextView
-                                    android:layout_width="10dp"
+                                    android:id="@+id/qtydisplay"
+                                    android:layout_width="50dp"
                                     android:layout_height="wrap_content"
-                                    android:text="1"
-                                    android:layout_marginHorizontal="10dp"
-                                    android:textColor="@color/white"/>
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textAlignment="center"/>
                                 <ImageButton
+                                    android:id="@+id/increment_btn"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:background="@drawable/increment" />
@@ -307,11 +315,13 @@
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputloginshape"
+                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
                             android:paddingHorizontal="5dp"
+                            android:focusable="false"
                             android:textSize="13dp"
                             android:hint="Game's Name : Item's Name"
+                            android:textColorHint="@color/white"
                             android:fontFamily="@font/poppinslightitalic"
                             />
                     </LinearLayout>
@@ -340,9 +350,10 @@
                                     android:fontFamily="@font/poppinssemibold"
                                     android:textSize="15dp"/>
                                 <TextView
+                                    android:id="@+id/totalpayment"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="100000000"
+                                    android:text="0"
                                     android:textColor="@color/white"
                                     android:fontFamily="@font/poppinsbold"
                                     android:textSize="25dp"/>
@@ -356,6 +367,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true">
                             <Button
+                                android:id="@+id/btnCheckout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Checkout"
