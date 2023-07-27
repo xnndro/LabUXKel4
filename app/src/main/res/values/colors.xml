@@ -6,4 +6,5 @@
     <color name="blue">#010127</color>
     <color name="white_transparent">#80FFFFFF</color>
     <color name="purple_light">#B98EFF</color>
+    <color name="purple_dark">#03022B</color>
 </resources>
