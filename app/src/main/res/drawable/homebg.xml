@@ -12,6 +12,7 @@
         <shape android:shape="rectangle">
             <gradient
                 android:angle="180"
+                android:gradientRadius="500dp"
                 android:centerColor="#00FF0000"
                 android:centerX="0.95"
                 android:endColor="#5C6A2ECC"

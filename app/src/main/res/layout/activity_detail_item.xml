@@ -94,21 +94,22 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="300dp"
-                android:layout_marginHorizontal="44dp"
-                android:src="@drawable/dt_itemimage"
-                />
-
-            <TextView
-                android:id="@+id/tv_itemName"
+                android:id="@+id/tv_itemImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="44dp"
+                android:visibility="visible"
+                android:src="@drawable/freefire" />
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginHorizontal="44dp"
                 android:fontFamily="@font/poppinsbolditalic"
                 android:text="Bundle Pack Summer"
                 android:textColor="@color/white"
-                android:textSize="18dp"/>
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tv_storeName"
@@ -118,27 +119,27 @@
                 android:fontFamily="@font/poppinsregular"
                 android:text="Mobail Lejen"
                 android:textColor="@color/white"
-                android:textSize="13dp"/>
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="44dp">
+
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:src="@drawable/dt_coin"
-                    />
+                    android:src="@drawable/dt_coin" />
 
                 <TextView
                     android:id="@+id/tv_itemPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:fontFamily="@font/poppinssemibold"
                     android:text="6000"
                     android:textColor="#95F204"
-                    android:textSize="12dp"
-                    android:layout_marginLeft="5dp"/>
+                    android:textSize="12dp" />
             </LinearLayout>
 
             <TextView
@@ -148,149 +149,164 @@
                 android:fontFamily="@font/poppinslightitalic"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam congue suscipit augue, quis vehicula velit pulvinar id."
                 android:textColor="@color/white"
-                android:textSize="12dp"/>
+                android:textSize="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginVertical="10dp"
                 android:gravity="center"
-                android:layout_marginVertical="10dp">
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/foldupicon"/>
+                    android:background="@drawable/foldupicon" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinslight"
                     android:text="SWIPE UP"
-                    android:textSize="8dp"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/poppinslight"/>
+                    android:textSize="8dp" />
             </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="600dp"
+                >
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/swipeup"/>
+                    android:layout_height="match_parent"
+                    android:background="@drawable/homebg"
+                    android:scaleType="fitCenter">
+                </ImageView>
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginHorizontal="45dp">
+                    android:layout_marginHorizontal="45dp"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="PURCHASE APPROVAL"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="30dp"
+                        android:fontFamily="@font/poppinsbold"
                         android:shadowColor="@color/purple"
                         android:shadowDy="4"
                         android:shadowRadius="20"
+                        android:text="PURCHASE APPROVAL"
                         android:textAlignment="center"
                         android:textColor="@color/white"
-                        android:layout_marginTop="30dp"
-                        android:layout_marginBottom="30dp"
-                        android:textSize="25dp"
-                        android:fontFamily="@font/poppinsbold"
-                        />
+                        android:textSize="25dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="30dp">
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/poppinssemibold"
                             android:text="E-mail"
                             android:textColor="@color/white"
-                            android:layout_marginBottom="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/poppinssemibold"/>
+                            android:textSize="15dp" />
+
                         <EditText
                             android:id="@+id/dl_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
-                            android:paddingHorizontal="5dp"
-                            android:textSize="13dp"
-                            android:hint="input your e-mail"
-                            android:textColorHint="@color/white"
+                            android:background="@drawable/inputdetailshape"
                             android:fontFamily="@font/poppinslightitalic"
-                            />
+                            android:hint="input your e-mail"
+                            android:paddingHorizontal="5dp"
+                            android:textColorHint="@color/white"
+                            android:textColor="@color/white"
+                            android:textSize="13dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="30dp">
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/poppinssemibold"
                             android:text="Username"
                             android:textColor="@color/white"
-                            android:layout_marginBottom="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/poppinssemibold"/>
+                            android:textSize="15dp" />
+
                         <EditText
                             android:id="@+id/dl_username"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
-                            android:paddingHorizontal="5dp"
-                            android:textSize="13dp"
-                            android:hint="input your username"
-                            android:textColorHint="@color/white"
+                            android:background="@drawable/inputdetailshape"
                             android:fontFamily="@font/poppinslightitalic"
-                            />
+                            android:hint="input your username"
+                            android:paddingHorizontal="5dp"
+                            android:textColorHint="@color/white"
+                            android:textColor="@color/white"
+                            android:textSize="13dp" />
                     </LinearLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="30dp">
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:elevation="1dp"
                             android:gravity="start">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppinssemibold"
                                 android:text="Qty"
                                 android:textColor="@color/white"
-                                android:fontFamily="@font/poppinssemibold"
-                                android:textSize="15dp"
-                                />
+                                android:textSize="15dp" />
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="end"
-                            android:elevation="1dp"
                             android:layout_alignParentRight="true"
-                            >
+                            android:elevation="1dp"
+                            android:gravity="end">
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:gravity="center"
                                 android:layout_centerVertical="true"
-                                >
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
                                 <ImageButton
                                     android:id="@+id/decrement_btn"
                                     android:layout_width="30dp"
                                     android:layout_height="30dp"
                                     android:background="@drawable/decrement" />
+
                                 <TextView
                                     android:id="@+id/qtydisplay"
                                     android:layout_width="50dp"
                                     android:layout_height="wrap_content"
                                     android:text="0"
-                                    android:textColor="@color/white"
-                                    android:textAlignment="center"/>
+                                    android:textAlignment="center"
+                                    android:textColor="@color/white" />
+
                                 <ImageButton
                                     android:id="@+id/increment_btn"
                                     android:layout_width="30dp"
@@ -299,32 +315,35 @@
                             </LinearLayout>
                         </RelativeLayout>
                     </RelativeLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="30dp">
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/poppinssemibold"
                             android:text="Item"
                             android:textColor="@color/white"
-                            android:layout_marginBottom="5dp"
-                            android:textSize="15dp"
-                            android:fontFamily="@font/poppinssemibold"/>
+                            android:textSize="15dp" />
+
                         <EditText
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/inputdetailshape"
                             android:height="30dp"
-                            android:paddingHorizontal="5dp"
+                            android:background="@drawable/inputdetailshape"
                             android:focusable="false"
-                            android:textSize="13dp"
-                            android:hint="Game's Name : Item's Name"
-                            android:textColorHint="@color/white"
                             android:fontFamily="@font/poppinslightitalic"
-                            />
+                            android:hint="Game's Name : Item's Name"
+                            android:paddingHorizontal="5dp"
+                            android:textColorHint="@color/white"
+                            android:textSize="13dp" />
                     </LinearLayout>
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -333,61 +352,63 @@
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="start"
                             android:elevation="1dp"
-                            >
+                            android:gravity="start">
+
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:orientation="vertical"
                                 android:layout_centerVertical="true"
-                                >
+                                android:orientation="vertical">
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinssemibold"
                                     android:text="Total Payment"
                                     android:textColor="@color/white"
-                                    android:fontFamily="@font/poppinssemibold"
-                                    android:textSize="15dp"/>
+                                    android:textSize="15dp" />
+
                                 <TextView
                                     android:id="@+id/totalpayment"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppinsbold"
                                     android:text="0"
                                     android:textColor="@color/white"
-                                    android:fontFamily="@font/poppinsbold"
-                                    android:textSize="25dp"/>
+                                    android:textSize="25dp" />
                             </LinearLayout>
                         </RelativeLayout>
+
                         <RelativeLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:elevation="1dp"
-                            android:gravity="end"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true">
+                            android:layout_centerVertical="true"
+                            android:elevation="1dp"
+                            android:gravity="end">
+
                             <Button
                                 android:id="@+id/btnCheckout"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Checkout"
                                 android:fontFamily="@font/poppinsbold"
-                                android:shadowColor="@color/white"
-                                android:shadowRadius="20"
-                                android:shadowDy="4"
-                                android:textAllCaps="false"
                                 android:paddingHorizontal="40dp"
-                                android:paddingVertical="10dp">
+                                android:paddingVertical="10dp"
+                                android:shadowColor="@color/white"
+                                android:shadowDy="4"
+                                android:shadowRadius="20"
+                                android:text="Checkout"
+                                android:textAllCaps="false">
 
                             </Button>
                         </RelativeLayout>
                     </RelativeLayout>
 
                 </LinearLayout>
-            </RelativeLayout>
+            </FrameLayout>
 
         </LinearLayout>
-
 
 
     </ScrollView>
