@@ -234,10 +234,11 @@
             android:gravity="start"
             >
 
-            <ImageView
+            <ImageButton
+                android:id="@+id/homeBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/lingkaran"
+                android:background="@drawable/lingkaran"
                 />
 
             <ImageView
@@ -285,14 +286,16 @@
                 android:visibility="invisible"
                 >
                 <ImageButton
+                    android:id="@+id/profileBtn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/inputloginshape"
+                    android:background="@drawable/backgroundmenuprofile"
                     android:layout_marginTop="55dp"/>
                 <ImageButton
+                    android:id="@+id/logoutBtn"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/inputloginshape"
+                    android:background="@drawable/backgroundmenulogout"
                     />
             </LinearLayout>
         </RelativeLayout>

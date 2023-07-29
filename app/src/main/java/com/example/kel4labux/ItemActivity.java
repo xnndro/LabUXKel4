@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,6 +24,8 @@ public class ItemActivity extends AppCompatActivity {
     private AdapterItem adapterItem;
     private RelativeLayout menus;
     private Animation slideDownAnimation, slideUpAnimation;
+
+    private ImageButton homeBtn, profileBtn, logoutBtn;
 
     TextView gameName,gameDesc,gameType,gameStore,gameItems;
     ImageView gameIcon;
@@ -44,6 +47,9 @@ public class ItemActivity extends AppCompatActivity {
         gameType = findViewById(R.id.gameType);
         gameStore = findViewById(R.id.gameStore);
         gameItems = findViewById(R.id.gameItems);
+        homeBtn = (ImageButton) findViewById(R.id.homeBtn);
+        profileBtn = findViewById(R.id.profileBtn);
+        logoutBtn = findViewById(R.id.logoutBtn);
 
         gameIcon.setImageResource(game.getIcon());
         gameName.setText(game.getName());
@@ -78,6 +84,30 @@ public class ItemActivity extends AppCompatActivity {
                     sidebar.setVisibility(View.VISIBLE);
                     sidebar.startAnimation(slideDownAnimation);
                 }
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ItemActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ItemActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ItemActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

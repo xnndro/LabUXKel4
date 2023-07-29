@@ -103,7 +103,7 @@ public class DetailItem extends AppCompatActivity {
                     openError("Your money is not enough!!");
                 } else {
 
-                    int updatedMoney = User.getInstance().getAccBal() - kali
+                    int updatedMoney = User.getInstance().getAccBal() - kali;
                     User.getInstance().setAccBal(updatedMoney);
 
                     ArrayList<Transactions> detailList = new ArrayList<>();
