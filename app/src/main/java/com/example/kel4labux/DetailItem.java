@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class DetailItem extends AppCompatActivity {
     private Item item;
     TextView itemName, itemPrice, storeName, display, money;
@@ -93,6 +95,11 @@ public class DetailItem extends AppCompatActivity {
                 } else if (kali>moneyInt) {
                     openError("Your money is not enough!!");
                 } else {
+
+                    ArrayList<Transactions> detailList = new ArrayList<>();
+
+                    detailList.add(new Transactions(item.getGameName(), String.valueOf(count), item.getName(), item.getImage(), item.getPrice(), String.valueOf(kali)));
+                    Transactions.getInstance().setDataList(detailList);
                     openSuccess();
                 }
             }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- "background shadow" -->
+    <item>
+        <shape android:shape="rectangle" >
+            <stroke android:color="#290760"
+                android:width="2dp"/>
+            <solid android:color="#00000000" />
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <!-- background color -->
+    <item
+        android:bottom="3px"
+        android:left="3px"
+        android:right="3px"
+        android:top="3px">
+        <shape android:shape="rectangle" >
+            <solid android:color="#00000000" />
+
+        </shape>
+    </item>
+    <!-- over left shadow -->
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="180"
+                android:centerColor="#00000000"
+                android:centerX="0.95"
+                android:endColor="#4DFFFFFF"
+                android:startColor="#00000000" />
+
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <!-- over right shadow -->
+
+    <!-- over top shadow -->
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="-135"
+                android:centerColor="#00000000"
+                android:centerY="0.95"
+                android:endColor="#4DFFFFFF"
+                android:startColor="#00000000"
+                android:type="linear" />
+
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+    <!-- over bottom shadow -->
+    <item>
+        <shape android:shape="rectangle" >
+            <gradient
+                android:angle="90"
+                android:centerColor="#00000000"
+                android:centerY="0.95"
+                android:endColor="#4DFFFFFF"
+                android:startColor="#00000000"
+                android:type="linear" />
+
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+
+</layer-list>
