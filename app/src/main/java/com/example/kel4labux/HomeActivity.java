@@ -59,7 +59,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        String email = getIntent().getStringExtra("email");
+
+//        String email = getIntent().getStringExtra("email");
+        String email = User.getInstance().getEmail();
         int index = email.indexOf("@");
         String username = email.substring(0, index);
         
