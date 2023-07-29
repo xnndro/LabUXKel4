@@ -104,15 +104,15 @@
             <TextView
                 android:id="@+id/itemName"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="44dp"
                 android:fontFamily="@font/poppinsbolditalic"
-                android:text="Bundle Pack Summer"
+                android:text="Free Fire"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/tv_storeName"
+                android:id="@+id/tv_gameName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="44dp"

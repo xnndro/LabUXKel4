@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class DetailItem extends AppCompatActivity {
     private Item item;
-    TextView itemName, itemPrice, storeName, display, money;
+    TextView itemName, itemPrice, gameName, display, money;
     ImageView itemImage;
     ImageButton increment, decrement;
     EditText cs_email, cs_username;
@@ -40,7 +40,7 @@ public class DetailItem extends AppCompatActivity {
 
         itemName = findViewById(R.id.itemName);
         itemPrice = findViewById(R.id.tv_itemPrice);
-        storeName = findViewById(R.id.tv_storeName);
+        gameName = findViewById(R.id.tv_gameName);
         itemImage = findViewById(R.id.tv_itemImage);
         int imageResource = item.getImage();
 
@@ -52,9 +52,9 @@ public class DetailItem extends AppCompatActivity {
         totalpay=findViewById(R.id.totalpayment);
         money=findViewById(R.id.moneycash);
 
-        itemName.setText(item.getGameName());
+        itemName.setText(item.getName());
         itemPrice.setText(item.getPrice());
-        storeName.setText(item.getStoreName());
+        gameName.setText(item.getGameName());
 //        itemImage.setImageResource(imageResource);
 
         String priceText = itemPrice.getText().toString();
@@ -103,8 +103,7 @@ public class DetailItem extends AppCompatActivity {
                 } else {
 
                     ArrayList<Transactions> detailList = new ArrayList<>();
-
-                    detailList.add(new Transactions(item.getGameName(), String.valueOf(count), item.getName(), item.getImage(), item.getPrice(), String.valueOf(kali)));
+                    detailList.add(new Transactions(item.getGameName(), String.valueOf(count), item.getName(), item.getPrice(), String.valueOf(kali), item.getImage()));
                     Transactions.getInstance().setDataList(detailList);
                     openSuccess();
                 }
