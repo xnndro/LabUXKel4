@@ -55,7 +55,8 @@ public class DetailItem extends AppCompatActivity {
         String moneyText = money.getText().toString();
         int priceInt,moneyInt;
         priceInt = Integer.parseInt(priceText);
-        moneyInt = Integer.parseInt(moneyText);
+//        moneyInt = Integer.parseInt(moneyText);
+        moneyInt = User.getInstance().getAccBal();
 
         increment.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -95,6 +96,9 @@ public class DetailItem extends AppCompatActivity {
                 } else if (kali>moneyInt) {
                     openError("Your money is not enough!!");
                 } else {
+
+                    int updatedMoney = User.getInstance().getAccBal() - kali
+                    User.getInstance().setAccBal(updatedMoney);
 
                     ArrayList<Transactions> detailList = new ArrayList<>();
 

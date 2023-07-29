@@ -67,6 +67,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/userName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppinsbold"
@@ -86,6 +87,7 @@
                                 app:cardCornerRadius="35dp">
 
                                 <TextView
+                                    android:id="@+id/emailProfile"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -162,6 +164,7 @@
                                 />
 
                             <TextView
+                                android:id="@+id/accBalance"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="99999"
@@ -196,10 +199,11 @@
                             >
 
                             <EditText
+                                android:id="@+id/topUpInput"
                                 android:layout_width="190dp"
                                 android:layout_height="match_parent"
                                 android:height="30dp"
-
+                                android:inputType="number"
                                 android:background="@drawable/inputtopup"
                                 android:fontFamily="@font/poppinssemibold"
                                 android:gravity="center_vertical"
@@ -211,6 +215,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent">
                                 <ImageButton
+                                    android:id="@+id/topUpBtn"
                                     android:layout_width="match_parent"
                                     android:layout_height="30dp"
                                     android:height="30dp"
@@ -227,8 +232,19 @@
 
                             </FrameLayout>
 
-
                         </LinearLayout>
+                        <TextView
+                            android:id="@+id/errorSetAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#890000"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:textStyle="italic"
+                            android:text="Halo"
+                            android:layout_marginTop="8dp"
+                            android:textSize="11sp"
+                            />
                     </LinearLayout>
                 </FrameLayout>
 
