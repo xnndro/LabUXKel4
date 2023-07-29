@@ -11,11 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailItem extends AppCompatActivity {
     private Item item;
     TextView itemName, itemPrice, storeName, display, money;
+    ImageView itemImage;
     ImageButton increment, decrement;
     EditText cs_email, cs_username;
     Button btn_co;
@@ -31,15 +33,14 @@ public class DetailItem extends AppCompatActivity {
         setContentView(R.layout.activity_detail_item);
     if(getIntent().hasExtra("item")){
             item = getIntent().getParcelableExtra("item");
+            System.out.printf("Game Name: " + item.getGameName());
         }
 
-        itemName = findViewById(R.id.tv_itemName);
+        itemName = findViewById(R.id.itemName);
         itemPrice = findViewById(R.id.tv_itemPrice);
         storeName = findViewById(R.id.tv_storeName);
-
-        itemName.setText(item.getName());
-        itemPrice.setText(item.getPrice());
-        storeName.setText(item.getStoreName());
+        itemImage = findViewById(R.id.tv_itemImage);
+        int imageResource = item.getImage();
 
         increment=findViewById(R.id.increment_btn);
         decrement=findViewById(R.id.decrement_btn);
@@ -48,6 +49,11 @@ public class DetailItem extends AppCompatActivity {
         cs_username=findViewById(R.id.dl_username);
         totalpay=findViewById(R.id.totalpayment);
         money=findViewById(R.id.moneycash);
+
+        itemName.setText(item.getGameName());
+        itemPrice.setText(item.getPrice());
+        storeName.setText(item.getStoreName());
+//        itemImage.setImageResource(imageResource);
 
         String priceText = itemPrice.getText().toString();
         String moneyText = money.getText().toString();
@@ -96,7 +102,8 @@ public class DetailItem extends AppCompatActivity {
                     openSuccess();
                 }
             }
-        });  }
+        });
+    }
     public void openError(String text){
         dialog.setContentView(R.layout.dialog_error);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));

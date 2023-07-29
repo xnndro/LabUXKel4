@@ -36,22 +36,22 @@ public class DataProvider {
 
     static List<Item> getItemListMobileLegends() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Hero yanto","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb1));
-        items.add(new Item("Hero tori","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb2));
-        items.add(new Item("Hero deep","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb3));
-        items.add(new Item("Hero budi","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb4));
-        items.add(new Item("Hero dipdip2","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb5));
+        items.add(new Item("Hero yanto","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb1, "Mobile Legends"));
+        items.add(new Item("Hero tori","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb2,"Mobile Legends"));
+        items.add(new Item("Hero deep","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb3,"Mobile Legends"));
+        items.add(new Item("Hero budi","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb4,"Mobile Legends"));
+        items.add(new Item("Hero dipdip2","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb5,"Mobile Legends"));
 
         return items;
     }
 
     static List<Item> getItemListMobileLegends2() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Hero yanto","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb1));
-        items.add(new Item("Hero tori","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb2));
-        items.add(new Item("Hero deep","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb3));
-        items.add(new Item("Hero budi","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb4));
-        items.add(new Item("Hero dipdip2","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb5));
+        items.add(new Item("Hero yanto","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb1, "Mobile Legends2"));
+        items.add(new Item("Hero tori","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb2,"Mobile Legends2"));
+        items.add(new Item("Hero deep","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb3,"Mobile Legends2"));
+        items.add(new Item("Hero budi","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb4,"Mobile Legends2"));
+        items.add(new Item("Hero dipdip2","10000","Yanto sukses Makmur","Lorem basdasdjabdasjdalkjdakjdlajdkas", R.drawable.mb5,"Mobile Legends2"));
 
         return items;
     }
