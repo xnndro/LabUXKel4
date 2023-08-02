@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,21 +13,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DetailItem extends AppCompatActivity {
     private Item item;
     TextView itemName, itemPrice, gameName, display, money;
     ImageView itemImage;
     ImageButton increment, decrement;
-    EditText cs_email, cs_username;
+    EditText cs_email, cs_username, dl_item_buy;
     Button btn_co;
     int count=0;
     int kali=0;
     Dialog dialog;
-    TextView temp,totalpay;
+    TextView temp,totalpay, description;
+
+    RelativeLayout backBtn;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,6 +47,9 @@ public class DetailItem extends AppCompatActivity {
         itemPrice = findViewById(R.id.tv_itemPrice);
         gameName = findViewById(R.id.tv_gameName);
         itemImage = findViewById(R.id.tv_itemImage);
+        backBtn = findViewById(R.id.backBtn);
+        description = findViewById(R.id.description);
+        dl_item_buy = findViewById(R.id.dl_item_buy);
 
         increment=findViewById(R.id.increment_btn);
         decrement=findViewById(R.id.decrement_btn);
@@ -51,10 +59,14 @@ public class DetailItem extends AppCompatActivity {
         totalpay=findViewById(R.id.totalpayment);
         money=findViewById(R.id.moneycash);
 
-        itemName.setText(item.getGameName());
+        itemName.setText(item.getName());
         itemPrice.setText(item.getPrice());
         gameName.setText(item.getGameName());
         itemImage.setImageResource(item.getImage());
+        description.setText(item.getDescription());
+        money.setText(String.valueOf(User.getInstance().getAccBal()));
+//        dl_item_buy.setEnabled(false);
+        dl_item_buy.setHint(item.getName());
 
         String priceText = itemPrice.getText().toString();
         String moneyText = money.getText().toString();
@@ -85,6 +97,13 @@ public class DetailItem extends AppCompatActivity {
         });
         btn_co = findViewById(R.id.btnCheckout);
         dialog = new Dialog(this);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         btn_co.setOnClickListener(new View.OnClickListener() {
             @Override

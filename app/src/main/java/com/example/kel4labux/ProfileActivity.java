@@ -4,11 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,10 +22,13 @@ import java.util.List;
 public class ProfileActivity extends AppCompatActivity {
 
     TextView userName, emailProfile, accBal;
+    private Animation slideDownAnimation, slideUpAnimation;
 
     EditText topUpInput;
     TextView errorSetAmount;
-    ImageButton topUpBtn;
+    ImageButton topUpBtn, homeBtn, profileBtn, logoutBtn;
+    LinearLayout sidebar;
+    RelativeLayout menus;
 
     RecyclerView transactionRecyclerView;
     LinearLayoutManager linearLayoutManager;
@@ -32,6 +40,52 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        slideDownAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
+        slideUpAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+
+        homeBtn = (ImageButton) findViewById(R.id.homeBtn);
+        profileBtn = findViewById(R.id.profileBtn);
+        logoutBtn = findViewById(R.id.logoutBtn);
+        sidebar = findViewById(R.id.sidebar);
+        menus = findViewById(R.id.menus);
+
+        menus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sidebar.getVisibility() == View.VISIBLE) {
+                    sidebar.startAnimation(slideUpAnimation);
+                    sidebar.setVisibility(View.INVISIBLE);
+                } else {
+                    sidebar.setVisibility(View.VISIBLE);
+                    sidebar.startAnimation(slideDownAnimation);
+                }
+            }
+        });
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         transactionRecyclerView = findViewById(R.id.transactionrecycler);
 
@@ -58,36 +112,42 @@ public class ProfileActivity extends AppCompatActivity {
         topUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateTopUp(Integer.parseInt(topUpInput.getText().toString()));
+                validateTopUp(topUpInput.getText().toString());
             }
         });
 
 
     }
 
-    private void validateTopUp(int topUp){
-
-        if (TextUtils.isEmpty(String.valueOf(topUp))){
+    private void validateTopUp(String topUpText) {
+        if (TextUtils.isEmpty(topUpText)) {
             showError("Please Set Amount to Add Coins");
+        } else {
+            try {
+                int topUp = Integer.parseInt(topUpText);
 
-        }else if(topUp<=0){
-            showError("Invalid Amount");
-        }else{
-            hideError();
-            int updatedMoney = User.getInstance().getAccBal() + topUp;
-            User.getInstance().setAccBal(updatedMoney);
-            accBal.setText(String.valueOf(updatedMoney));
-
+                if (topUp <= 0) {
+                    showError("Invalid Amount");
+                } else {
+                    hideError();
+                    errorSetAmount.setVisibility(View.INVISIBLE);
+                    int updatedMoney = User.getInstance().getAccBal() + topUp;
+                    User.getInstance().setAccBal(updatedMoney);
+                    accBal.setText(String.valueOf(updatedMoney));
+                }
+            } catch (NumberFormatException e) {
+                showError("Invalid Amount");
+            }
         }
-
     }
 
     private void hideError() {
-        errorSetAmount.setVisibility(android.view.View.GONE);
+        errorSetAmount.setVisibility(View.GONE);
     }
 
     private void showError(String errorMessage) {
         errorSetAmount.setText(errorMessage);
-        errorSetAmount.setVisibility(android.view.View.VISIBLE);
+        errorSetAmount.setVisibility(View.VISIBLE);
     }
+
 }

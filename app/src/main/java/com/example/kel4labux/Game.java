@@ -14,38 +14,6 @@ public class Game implements Parcelable {
 
     private List<Item> items;
 
-    public Game(String name, String description, String gameType, int icon, int totalDownloads, int totalItems, List<Item> items) {
-        this.name = name;
-        this.description = description;
-        this.gameType = gameType;
-        this.icon = icon;
-        this.totalDownloads = totalDownloads;
-        this.totalItems = totalItems;
-        this.items = items;
-    }
-
-    protected Game(Parcel in) {
-        name = in.readString();
-        description = in.readString();
-        gameType = in.readString();
-        icon = in.readInt();
-        totalDownloads = in.readInt();
-        totalItems = in.readInt();
-        items = in.createTypedArrayList(Item.CREATOR);
-    }
-
-    public static final Creator<Game> CREATOR = new Creator<Game>() {
-        @Override
-        public Game createFromParcel(Parcel in) {
-            return new Game(in);
-        }
-
-        @Override
-        public Game[] newArray(int size) {
-            return new Game[size];
-        }
-    };
-
     public String getName() {
         return name;
     }
@@ -101,6 +69,38 @@ public class Game implements Parcelable {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+    public Game(String name, String description, String gameType, int icon, int totalDownloads, int totalItems, List<Item> items) {
+        this.name = name;
+        this.description = description;
+        this.gameType = gameType;
+        this.icon = icon;
+        this.totalDownloads = totalDownloads;
+        this.totalItems = totalItems;
+        this.items = items;
+    }
+
+    protected Game(Parcel in) {
+        name = in.readString();
+        description = in.readString();
+        gameType = in.readString();
+        icon = in.readInt();
+        totalDownloads = in.readInt();
+        totalItems = in.readInt();
+        items = in.createTypedArrayList(Item.CREATOR);
+    }
+
+    public static final Creator<Game> CREATOR = new Creator<Game>() {
+        @Override
+        public Game createFromParcel(Parcel in) {
+            return new Game(in);
+        }
+
+        @Override
+        public Game[] newArray(int size) {
+            return new Game[size];
+        }
+    };
 
     @Override
     public int describeContents() {

@@ -140,8 +140,13 @@ public class ItemActivity extends AppCompatActivity {
             items = DataProvider.getItemListGTA();
         }else if(game.getName().equals("FIFA 22")) {
             items = DataProvider.getItemListFIFA();
-        }
-        else {
+        }else if(game.getName().equals("Hogwarts Legacy")) {
+            items = DataProvider.getItemListHogwarts();
+        }else if(game.getName().equals("Overcooked")) {
+            items = DataProvider.getItemListOvercooked();
+        }else if(game.getName().equals("Resident Evil")) {
+            items = DataProvider.getItemListResident();
+        }else {
             items = new ArrayList<>();
         }
 
