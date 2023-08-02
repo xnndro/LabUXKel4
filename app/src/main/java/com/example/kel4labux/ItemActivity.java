@@ -90,7 +90,7 @@ public class ItemActivity extends AppCompatActivity {
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ItemActivity.this, MainActivity.class);
+                Intent intent = new Intent(ItemActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
@@ -118,12 +118,32 @@ public class ItemActivity extends AppCompatActivity {
         if(game.getName().equals("Mobile Legends"))
         {
             items = DataProvider.getItemListMobileLegends();
-        }else if(game.getName().equals("Mobile Legends 2")) {
-            items = DataProvider.getItemListMobileLegends2();
-        }else {
+        }else if(game.getName().equals("Call Of Duty")) {
+            items = DataProvider.getItemListCOD();
+        }else if(game.getName().equals("Clash of Clan")) {
+            items = DataProvider.getItemListCOC();
+        }else if(game.getName().equals("Free Fire")) {
+            items = DataProvider.getItemListFreeFire();
+        }else if(game.getName().equals("PUBG")) {
+            items = DataProvider.getItemListPUBG();
+        }else if(game.getName().equals("Valorant")) {
+            items = DataProvider.getItemListValorant();
+        }else if(game.getName().equals("Counter Strike")) {
+            items = DataProvider.getItemListCS();
+        }else if(game.getName().equals("DreadOut")) {
+            items = DataProvider.getItemListDreadOut();
+        }else if(game.getName().equals("Fortnite")) {
+            items = DataProvider.getItemListFortnite();
+        }else if(game.getName().equals("Dota 2")) {
+            items = DataProvider.getItemListDota();
+        }else if(game.getName().equals("GTA")) {
+            items = DataProvider.getItemListGTA();
+        }else if(game.getName().equals("FIFA 22")) {
+            items = DataProvider.getItemListFIFA();
+        }
+        else {
             items = new ArrayList<>();
         }
-
 
         adapterItem = new AdapterItem(getApplicationContext(), items);
         adapterItem.setItemClickListener(this::onItemClick);

@@ -21,7 +21,7 @@
                 android:layout_height="250dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/mb1" />
+                android:src="@drawable/bggame" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

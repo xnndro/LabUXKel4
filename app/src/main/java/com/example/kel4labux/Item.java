@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 
 public class Item implements Parcelable {
 
-
     String name;
     String price;
     String storeName;
@@ -15,13 +14,14 @@ public class Item implements Parcelable {
 
     String gameName;
     int image;
-    public Item(String name, String price, String storeName , String description, int image,String gameName) {
+
+    public Item(String name, String price, String storeName, String description, int image, String gameName) {
         this.name = name;
         this.price = price;
         this.storeName = storeName;
         this.description = description;
-        this.image = image;
         this.gameName = gameName;
+        this.image = image;
     }
 
     protected Item(Parcel in) {
@@ -29,8 +29,8 @@ public class Item implements Parcelable {
         price = in.readString();
         storeName = in.readString();
         description = in.readString();
-        image = in.readInt();
         gameName = in.readString();
+        image = in.readInt();
     }
 
     public static final Creator<Item> CREATOR = new Creator<Item>() {
@@ -53,14 +53,6 @@ public class Item implements Parcelable {
         this.name = name;
     }
 
-    public String getGameName() {
-        return gameName;
-    }
-
-    public void setGameName(String gameName) {
-        this.gameName = gameName;
-    }
-
     public String getPrice() {
         return price;
     }
@@ -80,8 +72,17 @@ public class Item implements Parcelable {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 
     public int getImage() {
@@ -102,7 +103,8 @@ public class Item implements Parcelable {
         dest.writeString(name);
         dest.writeString(price);
         dest.writeString(storeName);
-        dest.writeInt(image);
+        dest.writeString(description);
         dest.writeString(gameName);
+        dest.writeInt(image);
     }
 }

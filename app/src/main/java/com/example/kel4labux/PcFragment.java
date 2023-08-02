@@ -18,7 +18,7 @@ import java.util.List;
  * Use the {@link PcFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PcFragment extends Fragment {
+public class PcFragment extends Fragment implements GameAdapter.ItemClickListener {
 
     View v;
     private List<Game> games;
@@ -49,8 +49,7 @@ public class PcFragment extends Fragment {
         recyclerViewGames = (RecyclerView) v.findViewById(R.id.pc_recyclerViewGames);
         recyclerViewGames.setLayoutManager(new GridLayoutManager(getContext(), 2));
         games = DataProvider.getGamesPc();
-        gameAdapter = new GameAdapter(games);
-        gameAdapter.setListener(this::onItemClick);
+        gameAdapter = new GameAdapter(games,this);
         recyclerViewGames.setAdapter(gameAdapter);
         return v;
     }

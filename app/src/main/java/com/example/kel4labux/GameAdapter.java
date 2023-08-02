@@ -15,7 +15,8 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
     private List<Game> games;
     private ItemClickListener itemClickListener;
 
-    public GameAdapter(List<Game> games) {
+    // Add a constructor that takes both the list of games and the itemClickListener
+    public GameAdapter(List<Game> games, ItemClickListener itemClickListener) {
         this.games = games;
         this.itemClickListener = itemClickListener;
     }
@@ -49,9 +50,7 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.GameViewHolder
         return games.size();
     }
 
-    public void setListener(ItemClickListener itemClickListener) {
-        this.itemClickListener = itemClickListener;
-    }
+    // Remove the setListener method, as the listener is already set in the constructor
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
         ImageView imageViewGameIcon;

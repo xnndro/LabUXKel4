@@ -35,14 +35,13 @@ public class DetailItem extends AppCompatActivity {
         setContentView(R.layout.activity_detail_item);
     if(getIntent().hasExtra("item")){
             item = getIntent().getParcelableExtra("item");
-            System.out.printf("Game Name: " + item.getGameName());
+            System.out.println("Game Name: " + item.getGameName());
         }
 
         itemName = findViewById(R.id.itemName);
         itemPrice = findViewById(R.id.tv_itemPrice);
         gameName = findViewById(R.id.tv_gameName);
         itemImage = findViewById(R.id.tv_itemImage);
-        int imageResource = item.getImage();
 
         increment=findViewById(R.id.increment_btn);
         decrement=findViewById(R.id.decrement_btn);
@@ -52,10 +51,10 @@ public class DetailItem extends AppCompatActivity {
         totalpay=findViewById(R.id.totalpayment);
         money=findViewById(R.id.moneycash);
 
-        itemName.setText(item.getName());
+        itemName.setText(item.getGameName());
         itemPrice.setText(item.getPrice());
         gameName.setText(item.getGameName());
-//        itemImage.setImageResource(imageResource);
+        itemImage.setImageResource(item.getImage());
 
         String priceText = itemPrice.getText().toString();
         String moneyText = money.getText().toString();

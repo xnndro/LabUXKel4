@@ -11,6 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.kel4labux.DataProvider;
+import com.example.kel4labux.Game;
+import com.example.kel4labux.GameAdapter;
+import com.example.kel4labux.ItemActivity;
+import com.example.kel4labux.R;
+
 import java.util.List;
 
 /**
@@ -18,7 +24,7 @@ import java.util.List;
  * Use the {@link ConsoleFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConsoleFragment extends Fragment {
+public class ConsoleFragment extends Fragment implements GameAdapter.ItemClickListener {
 
     View v;
     private List<Game> games;
@@ -26,7 +32,7 @@ public class ConsoleFragment extends Fragment {
     private GameAdapter gameAdapter;
 
     public ConsoleFragment() {
-        // Required empty public constructor
+
     }
 
 
@@ -41,7 +47,6 @@ public class ConsoleFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -49,15 +54,18 @@ public class ConsoleFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_console, container, false);
-        recyclerViewGames = (RecyclerView) v.findViewById(R.id.console_recyclerViewGames);
+        recyclerViewGames = v.findViewById(R.id.console_recyclerViewGames);
         recyclerViewGames.setLayoutManager(new GridLayoutManager(getContext(), 2));
         games = DataProvider.getGamesConsole();
-        gameAdapter = new GameAdapter(games);
-        gameAdapter.setListener(this::onItemClick);
+
+        // Pass 'this' as the ItemClickListener to GameAdapter constructor
+        gameAdapter = new GameAdapter(games, this);
+
         recyclerViewGames.setAdapter(gameAdapter);
         return v;
     }
 
+    @Override
     public void onItemClick(Game game) {
         Intent intent = new Intent(getContext(), ItemActivity.class);
         System.out.println(game.getName());
