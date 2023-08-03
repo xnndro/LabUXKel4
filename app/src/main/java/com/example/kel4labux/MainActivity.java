@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
                 if (email.isEmpty()) {
                     etUsername.setError("Email must be filled");
-                } else if (password.isEmpty()) {
-                    etPassword.setError("Password must be filled");
-                } else if (!email.contains("@")) {
+                }  else if (!email.contains("@")) {
                     etUsername.setError("Email must contain '@'");
                 } else if (!email.contains(".com")) {
                     etUsername.setError("Email must end with '.com'");
-                } else if (password.length() < 8) {
+                } else if (password.isEmpty()) {
+                    etPassword.setError("Password must be filled");
+                }else if (password.length() < 8) {
                     etPassword.setError("Password's length must be more than 8");
                 } else {
 

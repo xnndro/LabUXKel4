@@ -43,6 +43,7 @@ public class DetailItem extends AppCompatActivity {
             System.out.println("Game Name: " + item.getGameName());
         }
 
+
         itemName = findViewById(R.id.itemName);
         itemPrice = findViewById(R.id.tv_itemPrice);
         gameName = findViewById(R.id.tv_gameName);
@@ -124,9 +125,14 @@ public class DetailItem extends AppCompatActivity {
                     int updatedMoney = User.getInstance().getAccBal() - kali;
                     User.getInstance().setAccBal(updatedMoney);
 
-                    ArrayList<Transactions> detailList = new ArrayList<>();
-                    detailList.add(new Transactions(item.getGameName(), String.valueOf(count), item.getName(), item.getPrice(), String.valueOf(kali), item.getImage()));
+//                    ArrayList<Transactions> detailList = new ArrayList<>();
+//                    detailList.add(new Transactions(item.getGameName(), String.valueOf(count), item.getName(), item.getPrice(), String.valueOf(kali), item.getImage()));
+//                    Transactions.getInstance().setDataList(detailList);
+
+                    ArrayList<TransactionDetails> detailList = new ArrayList<>();
+                    detailList.add(new TransactionDetails(item.getGameName(), String.valueOf(count), item.getName(), item.getPrice(), String.valueOf(kali), item.getImage()));
                     Transactions.getInstance().setDataList(detailList);
+
                     openSuccess();
                 }
             }
@@ -156,7 +162,10 @@ public class DetailItem extends AppCompatActivity {
         btnOK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+//                set dialog dismiss and move to profilepage
                 dialog.dismiss();
+                Intent intent = new Intent(DetailItem.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
         dialog.show();

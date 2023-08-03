@@ -1,7 +1,6 @@
 package com.example.kel4labux;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,18 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterTransaction extends RecyclerView.Adapter<AdapterTransaction.HolderData> {
 
-    List<Transactions> listTransaction;
+    ArrayList<TransactionDetails> listTransaction;
     LayoutInflater inflater;
     private static ItemClickListener itemClickListener;
 
-    public AdapterTransaction(Context context, List<Transactions> listTransaction,ItemClickListener itemClickListener) {
+    public AdapterTransaction(Context context, ArrayList<TransactionDetails> listTransaction, ItemClickListener itemClickListener) {
         this.listTransaction = listTransaction;
         this.inflater = LayoutInflater.from(context);
-        this.itemClickListener = itemClickListener;
+        AdapterTransaction.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -34,10 +34,10 @@ public class AdapterTransaction extends RecyclerView.Adapter<AdapterTransaction.
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        Transactions transaction = listTransaction.get(position);
+        TransactionDetails transaction = listTransaction.get(position);
 
-        holder.imageTransaction.setImageResource(transaction.getIcon());
-        holder.totalGame.setText("-" + transaction.getTotal());
+        holder.imageTransaction.setImageResource(transaction.getItemImage());
+        holder.totalGame.setText("-" + transaction.getTotalPrice());
         holder.itemNameQuantity.setText(transaction.getItemName() + " - " + transaction.getQuantity()+ " pcs");
         holder.gameNameItemPrice.setText(transaction.getGameName());
     }

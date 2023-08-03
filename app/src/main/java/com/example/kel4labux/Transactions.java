@@ -1,7 +1,6 @@
 package com.example.kel4labux;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Transactions {
 
@@ -9,25 +8,28 @@ public class Transactions {
     private int icon;
 
     private static Transactions instance;
-    private ArrayList<Transactions> dataList = new ArrayList<>();
+    private ArrayList<TransactionDetails> dataList = new ArrayList<TransactionDetails>();
 
     private Transactions() {
-
+        dataList = new ArrayList<TransactionDetails>();
     }
 
-    public static Transactions getInstance() {
+    public static synchronized Transactions getInstance() {
         if (instance == null) {
             instance = new Transactions();
         }
         return instance;
     }
 
-    public ArrayList<Transactions> getDataList() {
+    public ArrayList<TransactionDetails> getDataList() {
         return dataList;
     }
 
-    public void setDataList(ArrayList<Transactions> newDataList) {
-        dataList = newDataList;
+    public void addTransaction(TransactionDetails transactionDetail) {
+        dataList.add(transactionDetail);
+    }
+    public void setDataList(ArrayList<TransactionDetails> newDataList) {
+        dataList.addAll(newDataList);
     }
 
     public Transactions(String gameName, String quantity, String itemName, String itemPrice, String total, int icon) {

@@ -33,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity implements AdapterTransac
     RecyclerView transactionRecyclerView;
     LinearLayoutManager linearLayoutManager;
     AdapterTransaction adapterTransaction;
-    ArrayList<Transactions> receivedTransaction = Transactions.getInstance().getDataList();
+    ArrayList<TransactionDetails> receivedTransaction = Transactions.getInstance().getDataList();
 
 
     @Override
