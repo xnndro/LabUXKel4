@@ -8,8 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -24,6 +27,10 @@ public class HomeActivity extends AppCompatActivity {
     //selected tab number
     private int selectedTabNumber = 1; //default view 1 yaitu mobile
 
+    LinearLayout sidebar;
+    RelativeLayout menus;
+    private Animation slideDownAnimation, slideUpAnimation;
+    ImageButton profileBtn, logoutBtn;
     TextView userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,42 @@ public class HomeActivity extends AppCompatActivity {
         mobileTab = findViewById(R.id.mobileTab);
         pcTab = findViewById(R.id.pcTab);
         consoleTab = findViewById(R.id.consoleTab);
+
+        sidebar = findViewById(R.id.sidebar);
+        menus = findViewById(R.id.menus);
+        slideDownAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_down);
+        slideUpAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide_up);
+        profileBtn = findViewById(R.id.profileBtn);
+        logoutBtn = findViewById(R.id.logoutBtn);
+
+        menus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (sidebar.getVisibility() == View.VISIBLE) {
+                    sidebar.startAnimation(slideUpAnimation);
+                    sidebar.setVisibility(View.INVISIBLE);
+                } else {
+                    sidebar.setVisibility(View.VISIBLE);
+                    sidebar.startAnimation(slideDownAnimation);
+                }
+            }
+        });
+
+        profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         //memilih fragment pertama jadi default
         getSupportFragmentManager().beginTransaction().setReorderingAllowed(true).replace(R.id.fragmenTab, MobileFragment.class, null).commit();

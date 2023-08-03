@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Game Name - Item Price"
             android:textSize="13sp"
-            android:fontFamily="@font/poppinssemibold"
+            android:fontFamily="@font/poppinsbold"
             android:textColor="@color/white"
             android:layout_marginBottom="5sp"/>
 
@@ -55,26 +55,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_gravity="center"
-        android:backgroundTint="@color/purple_light"
         android:layout_marginHorizontal="15dp"
         >
 
         <TextView
             android:id="@+id/totalGame"
-            android:layout_width="match_parent"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:fontFamily="@font/poppinssemibold"
-            android:text="-9999"
-            android:gravity="right"
+            android:fontFamily="@font/poppinsbold"
+            android:text="-250000"
+            android:textAlignment="textEnd"
+            android:gravity="left"
             android:textColor="#FD0000"
             android:textSize="14sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:gravity="right"
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/dt_coin"/>
 
 
 

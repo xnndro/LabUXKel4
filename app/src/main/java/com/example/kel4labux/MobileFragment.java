@@ -58,8 +58,10 @@ public class MobileFragment extends Fragment implements GameAdapter.ItemClickLis
 
     public void onItemClick(Game game) {
         Intent intent = new Intent(getContext(), ItemActivity.class);
-        System.out.println(game.getName());
+        System.out.println(game);
         intent.putExtra("game", game);
         startActivity(intent);
     }
+
+
 }

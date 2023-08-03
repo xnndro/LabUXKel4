@@ -357,7 +357,59 @@
 
         </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="15dp"
+        >
 
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:gravity="end"
+            >
+
+            <RelativeLayout
+                android:id="@+id/menus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="1dp"
+                >
+
+                <ImageView
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_hamburgermenu" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/sidebar"
+                android:layout_width="50dp"
+                android:layout_height="170dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_sidebar"
+                android:visibility="invisible"
+                >
+                <ImageButton
+                    android:id="@+id/profileBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/backgroundmenuprofile"
+                    android:layout_marginTop="55dp"/>
+                <ImageButton
+                    android:id="@+id/logoutBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/backgroundmenulogout"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 
 
 

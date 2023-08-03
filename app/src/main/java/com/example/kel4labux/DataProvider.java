@@ -199,6 +199,32 @@ public class DataProvider {
         return items;
     }
 
+    public static Game findGameByName(String gameName) {
+        List<Game> games = getGamesMobile();
+        for (Game game : games) {
+            if (game.getName().equals(gameName)) {
+                return game;
+            }
+        }
+
+        games = getGamesPc();
+        for (Game game : games) {
+            if (game.getName().equals(gameName)) {
+                return game;
+            }
+        }
+
+        games = getGamesConsole();
+        for (Game game : games) {
+            if (game.getName().equals(gameName)) {
+                return game;
+            }
+        }
+
+        return null;
+    }
+
+
 
 }
 

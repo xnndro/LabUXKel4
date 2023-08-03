@@ -19,16 +19,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements AdapterTransaction.ItemClickListener {
 
     TextView userName, emailProfile, accBal;
-    private Animation slideDownAnimation, slideUpAnimation;
 
     EditText topUpInput;
     TextView errorSetAmount;
     ImageButton topUpBtn, homeBtn, profileBtn, logoutBtn;
     LinearLayout sidebar;
     RelativeLayout menus;
+    private Animation slideDownAnimation, slideUpAnimation;
 
     RecyclerView transactionRecyclerView;
     LinearLayoutManager linearLayoutManager;
@@ -88,9 +88,14 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         transactionRecyclerView = findViewById(R.id.transactionrecycler);
-
+        // Set the item click listener to the AdapterTransaction
+        AdapterTransaction adapterTransaction = new AdapterTransaction(getApplicationContext(), receivedTransaction, this);
         transactionRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        transactionRecyclerView.setAdapter(new AdapterTransaction(getApplicationContext(), receivedTransaction));
+        transactionRecyclerView.setAdapter(adapterTransaction);
+
+
+//        transactionRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        transactionRecyclerView.setAdapter(new AdapterTransaction(getApplicationContext(), receivedTransaction));
 
         String email = User.getInstance().getEmail();
         int index = email.indexOf("@");
@@ -121,7 +126,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void validateTopUp(String topUpText) {
         if (TextUtils.isEmpty(topUpText)) {
-            showError("Please Set Amount to Add Coins");
+            showError("Invalid Amount");
         } else {
             try {
                 int topUp = Integer.parseInt(topUpText);
@@ -148,6 +153,19 @@ public class ProfileActivity extends AppCompatActivity {
     private void showError(String errorMessage) {
         errorSetAmount.setText(errorMessage);
         errorSetAmount.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        // This method will be called when an item is clicked in the RecyclerView
+        String gameName = receivedTransaction.get(position).getGameName();
+        Game selectedGame = DataProvider.findGameByName(gameName);
+
+        if (selectedGame != null) {
+            Intent intent = new Intent(ProfileActivity.this, ItemActivity.class);
+            intent.putExtra("game", selectedGame);
+            startActivity(intent);
+        }
     }
 
 }
